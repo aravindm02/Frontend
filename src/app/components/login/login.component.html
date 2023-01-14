@@ -1,0 +1,20 @@
+<div class="login-block">
+    <h3>Login</h3>
+    <div class="form-name mb-2">
+        <label>Email ID</label>
+        <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
+    </div>
+    <div class="form-name mb-2">
+        <label>Password</label>
+        <input [(ngModel)]="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
+    </div>
+    <label class="mb-2">
+        Forgot your password?
+    </label>
+    <div class="mb-2">
+        <button class="btn btn-secondary">Sign In</button>
+    </div>
+    <div class="mb-2" routerLink="/jewel/register">
+                Create account
+    </div>
+</div>

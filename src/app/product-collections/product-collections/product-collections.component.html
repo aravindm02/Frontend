@@ -1,0 +1,35 @@
+<div class="main-content">
+    <div class="collection_images">
+      <img class="img-container" src="assets/pendants.jpg" alt="">
+    </div>
+   
+  <div class="filter-row mb-12">
+      <div class="filter-id mr-12">Category<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id mr-12">Stone<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id mr-12">Price<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id mr-12">Color<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id mr-12">Style<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id mr-12">For<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <div class="filter-id ml-auto">SORT BY: FEATURED<img class="d-arrow" src="assets/down-arrow.svg" alt=""></div>
+      <!-- <ng-select bindLabel="name" placeholder="Select item" appendTo="body" multiple="true" [searchable]="true" [clearable]="true" [(ngModel)]="selected">
+      <ng-option [value]="item.id" [disabled]="item.disabled" *ngFor="let item of list">
+          <img src="./assets/{{item.image}}" width="20px" height="20px"/>
+          {{item.name}}
+      </ng-option>
+      </ng-select> -->
+  </div>
+  <label class="prdt-count"><b>{{productList.data.length}}</b> Products</label>
+    <div class="content-details">
+      <div class="accordion ml-auto mr-auto mb-4" *ngFor="let row of productList.data;let i=index">
+          <div class="flex-grid cursor-pointer" (click)="routeToDetails(row)">
+             <img class="accordion_img" [src]="row?.productImage" alt="">
+             <label class="product-name mt-1">{{row?.productName}}</label>
+             <div class="product-price">
+              <label class="mr-12">{{row?.actualPrice | currency:'INR'}}</label>
+              <s class="grey-text">{{row?.discountPrice | currency:'INR'}}</s>
+             </div>
+          </div>
+       </div>
+    </div>
+  
+</div>

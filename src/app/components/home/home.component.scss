@@ -1,0 +1,28 @@
+.main-content{
+    top: 120px;
+    position: relative;
+    background: #ffffff;
+    // background: rgb(227, 228, 219);
+    .collection_images{
+        position: relative;
+        overflow: hidden;
+    }
+    .img-container{
+        // height: 420px;
+        width: 100%;
+        .caption{
+            font-family: Tahoma;
+            left: 30%;
+            top: 15%;
+            font-size: 30px;
+            background-color: rgba(0,0,0,0.8);  
+            position: absolute;  
+            color: #fff;  
+            z-index: 100;  
+            opacity: 1;  
+            width: 450px;  
+            text-align: left;  
+            padding: 15px;
+        }
+    }
+}
