@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   emailId:any
   passcode:any
+  showForgot:any=false
 
   constructor() { }
 

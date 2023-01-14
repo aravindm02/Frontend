@@ -12,14 +12,13 @@ const routes: Routes = [
   { path: '', redirectTo: 'jewel', pathMatch: 'full' },
   { path: 'jewel', component: NavBarComponent,data: { title: 'Home'},
   children: [
-    { path: '', redirectTo: 'product-collections',pathMatch: 'full' },
+    { path: '', redirectTo: 'home',pathMatch: 'full' },
     { path: 'home', component: HomeComponent, data: { title: 'Home'}},
     { path: 'login', component: LoginComponent, data: { title: 'Login'}},
     { path: 'register', component: RegisterComponent,data: { title: 'Register'}},
     { path: 'product-collections', component: ProductCollectionsComponent, data: { title: 'Collections'}},
      { path: 'product-collections/details/:name', component: ProductDetailsComponent, data: { title: 'Details'}}
-   ]
-  },
+   ]},
   { path: '**', component: NavBarComponent }
 ];
 

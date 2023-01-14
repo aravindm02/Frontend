@@ -1,4 +1,4 @@
-<div class="login-block">
+<div class="login-block" *ngIf="!showForgot">
     <h3>Login</h3>
     <div class="form-name mb-2">
         <label>Email ID</label>
@@ -8,13 +8,28 @@
         <label>Password</label>
         <input [(ngModel)]="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
     </div>
-    <label class="mb-2">
+    <label class="cursor-pointer mb-2" (click)="showForgot=true">
         Forgot your password?
     </label>
     <div class="mb-2">
         <button class="btn btn-secondary">Sign In</button>
     </div>
-    <div class="mb-2" routerLink="/jewel/register">
+    <div class="cursor-pointer mb-2" routerLink="/jewel/register">
                 Create account
+    </div>
+</div>
+
+<div class="login-block" *ngIf="showForgot">
+    <h5>RESET YOUR PASSWORD</h5>
+    <label class="cursor-pointer mb-2">
+        We will send you an email to reset your password.
+    </label>
+    <div class="form-name mb-2">
+        <label>Email ID</label>
+        <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
+    </div>
+    <div class="mb-2">
+        <button class="btn btn-secondary mr-12">Submit</button>
+        <button class="btn btn-light" (click)="showForgot=false">Cancel</button>
     </div>
 </div>

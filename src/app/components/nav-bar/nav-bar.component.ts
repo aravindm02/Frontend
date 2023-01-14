@@ -13,20 +13,16 @@ export class NavBarComponent implements OnInit {
   searchText:any
   emailId:any
   productList:any
+  showSearchBar:any
   list:any
   
   constructor(private api:ApiService,private router:Router) {
-    // this.api.getData().subscribe(data=>{
-    //   console.warn(data)
-    //   this.productList=data
-    // })
    }
 
   ngOnInit(): void {
   }
   toggleSearchBar(){
-    // $("enlist-srch").removeClass('enlist-srch')
-    
+        this.showSearchBar=!this.showSearchBar
   }
   search(event?:any){
     let searchValue = event.target.value.toLowerCase()

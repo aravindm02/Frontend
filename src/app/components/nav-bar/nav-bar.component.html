@@ -36,36 +36,34 @@
     </div>
     
   </div>
-  <div class="enlist-srch global-search" id="enlist-srch">
-    <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
-    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-      <span aria-hidden="true">&times;</span>
-    </button> -->
-    <img class="srch-icon" src="assets/search.png">
-    <input [(ngModel)]="searchText" placeholder="Search" autocomplete="off" class="manual-srch" type="text" id="projectSearch" 
-       (keyup)="search($event)" >  
-  </div>
-  <div class="search-expand">
-    <div class="search-result">
-        <p class="result-head" >Project </p>
-        <!-- <p class="projectName" *ngFor="let list of result" (click)="route(list)">{{list?.searchProject}}
-        <span class="subtext">({{list?.projectTitle}})</span></p>
-        <p class="noresult" *ngIf="!result?.length" > No results found</p> -->
-  
-        <hr style="margin: 4px 0px;">
-        <p class="result-head">A3S Documentation</p>
-        <!-- <p class="projectName" *ngFor="let list of manualResult" (click)="changeTab(list)" >
-        {{list?.value}}
-          <ng-container *ngIf ="list?.type !=='parent'">
-                <span class="subtext">({{list?.Title}})</span>
-          </ng-container>
-                <span><img class="ellipis" src="assets\user-manual\new-tab.svg"></span></p>
-         
-        <p  class="noresult" *ngIf="!manualResult?.length" > No results found </p> -->
-  
-        <!-- <hr style="margin: 4px 0px;">
-        <p class="result-head">Azure Documentation</p>
-        <p class="noresult" >No results found</p> -->
+  <div *ngIf="showSearchBar">
+    <div class="enlist-srch global-search" id="enlist-srch">
+      <img class="srch-icon" src="assets/search.png">
+      <input [(ngModel)]="searchText" placeholder="Search" autocomplete="off" class="manual-srch" type="text" id="projectSearch" 
+         (keyup)="search($event)" >  
+    </div>
+    <div class="search-expand">
+      <div class="search-result">
+          <p class="result-head" >Project </p>
+          <!-- <p class="projectName" *ngFor="let list of result" (click)="route(list)">{{list?.searchProject}}
+          <span class="subtext">({{list?.projectTitle}})</span></p>
+          <p class="noresult" *ngIf="!result?.length" > No results found</p> -->
+    
+          <hr style="margin: 4px 0px;">
+          <p class="result-head">A3S Documentation</p>
+          <!-- <p class="projectName" *ngFor="let list of manualResult" (click)="changeTab(list)" >
+          {{list?.value}}
+            <ng-container *ngIf ="list?.type !=='parent'">
+                  <span class="subtext">({{list?.Title}})</span>
+            </ng-container>
+                  <span><img class="ellipis" src="assets\user-manual\new-tab.svg"></span></p>
+           
+          <p  class="noresult" *ngIf="!manualResult?.length" > No results found </p> -->
+    
+          <!-- <hr style="margin: 4px 0px;">
+          <p class="result-head">Azure Documentation</p>
+          <p class="noresult" >No results found</p> -->
+      </div>
     </div>
   </div>
   <router-outlet></router-outlet>
