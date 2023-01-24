@@ -34,6 +34,7 @@ export class ProductCollectionsComponent implements OnInit {
     step: 100,
     showTicks: true
   };
+  
   setMinValue: any;
   setMaxValue: any;
   filterForm: FormGroup;
