@@ -12,7 +12,7 @@
         Forgot your password?
     </label>
     <div class="mb-2">
-        <button class="btn btn-secondary">Sign In</button>
+        <button class="btn btn-secondary" (click)="signIn()">Sign In</button>
     </div>
     <div class="cursor-pointer mb-2" routerLink="/jewel/register">
                 Create account
@@ -29,7 +29,7 @@
         <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
     </div>
     <div class="mb-2">
-        <button class="btn btn-secondary mr-12">Submit</button>
+        <button class="btn btn-secondary mr-12" (click)="signIn()">Submit</button>
         <button class="btn btn-light" (click)="showForgot=false">Cancel</button>
     </div>
 </div>

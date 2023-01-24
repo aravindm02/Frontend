@@ -3,8 +3,58 @@
         <div class="pdct-img">
             <img class="accordion_img" [src]="currentProductDetails?.productImage" alt="">
         </div>
-        <div class="">
-            <label class="header">{{currentProductDetails?.productName}}</label>
+        <div class="product_content">
+            <label class="header mb-2">{{currentProductDetails?.productName | titlecase}}</label>
+            <div class="mb-2">{{currentProductDetails?.productName | titlecase}}</div>
+            <div class="mb-3">MADE WITH PURE 925 SILVER</div>
+            <div class="flex-custom">
+                <label class="price_amt">{{currentProductDetails?.discountPrice | currency:'INR'}}</label>
+                <div class="flex-grid mrpDetails">
+                    <span>MRP <s>{{currentProductDetails?.actualPrice | currency:'INR'}}</s></span>
+                    <label>Incl. of all taxes</label>
+                </div>
+            </div>
+            <div class="flex-grid w-75">
+                <div class="flex-custom">
+                    <input type="checkbox" id="giftWrap"  class="mr-3 mb-1" autocomplete="off">
+                    <label for="giftWrap">Add Gift Wrap to your Order (Rs. 50)</label>
+                </div>
+            
+                <button class="btn btn-secondary mb-12">ADD TO CART</button>
+                <button class="btn btn-secondary mb-12">BUY IT NOW</button>
+                <button class="btn btn-secondary mb-12">ADD TO WISHLIST</button>
+            </div>
+            <div class="flex-custom mb-3">
+                <!-- static policy content -->
+            <ng-container *ngFor="let policy of productPolicies">
+                    <ul class="tags">
+                        <li>
+                            <div class="product-policies">
+                                <img class="" [src]="policy.img" alt="">
+                                <p>{{policy?.Name}}</p>
+                            </div>
+                        </li>
+                    </ul>
+            </ng-container>
+            </div>
+            <div class="btm-line">
+                <div class="filter-id mr-2 drop" (click)="subMenuOpen('specialoffer')"  id="specialoffer">SPECIAL OFFERS</div>
+                <div class="dropdown-content">
+                    <p>{{currentProductDetails.description}}</p>
+                </div>
+            </div>
+            <div class="btm-line">
+                <div class="filter-id mr-2 drop" (click)="subMenuOpen('productdescription')"  id="productdescription">PRODUCT DESCRIPTION</div>
+                <div class="dropdown-content">
+                   <p>{{currentProductDetails.description}}</p>
+                </div>
+            </div>
+            <div class="btm-line">
+                <div class="filter-id mr-2 drop" (click)="subMenuOpen('shippingdetails')"  id="shippingdetails">SHIPPING DETAILS</div>
+                <div class="dropdown-content">
+                   <p>{{currentProductDetails.description}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

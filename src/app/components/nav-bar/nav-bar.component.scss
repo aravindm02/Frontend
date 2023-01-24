@@ -4,7 +4,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    position: absolute;
+    position: fixed;
     color: #ffb703;
     display: grid;
     font-family: Roboto;
@@ -36,10 +36,10 @@
             cursor: pointer;
             &.active{
                text-decoration: underline;
-               font-weight: 600;
+               font-weight: 700;
             }
             &:hover{
-                text-decoration: underline;
+              text-decoration: underline;
             }
         }
     }
@@ -115,15 +115,18 @@
     display: block;
   }
   .enlist-srch{
-    position: relative;
-    margin: 0px 24px;
+    position: fixed;
+    background: #ffffff;
+    // margin: 0px 24px;
+    padding: 4px 24px;
+    width: 100%;
     top: 115px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     // padding: 0px 24px;
     .srch-icon{
         position: absolute;
-        top: 8px;
-        left: 10px;
+        top: 36px;
+        left: 32px;
     }
     .manual-srch{
         padding: 7px 13px 8px 35px;

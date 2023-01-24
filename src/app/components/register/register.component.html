@@ -1,22 +1,30 @@
 <div class="register-block">
     <h3>Create Account</h3>
-    <div class="form-name mb-2">
-        <label>First Name</label>
-        <input [(ngModel)]="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
-    </div>
-    <div class="form-name mb-2">
-        <label>Last Name</label>
-        <input [(ngModel)]="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
-    </div>
-    <div class="form-name mb-2">
-        <label>Email ID</label>
-        <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
-    </div>
-    <div class="form-name mb-2">
-        <label>Password</label>
-        <input [(ngModel)]="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
-    </div>
-    <div class="mb-2">
-        <button class="btn btn-secondary">Create</button>
-    </div>
+    <form [formGroup]="registerForm">
+        <div class="form-name mb-2">
+            <label>First Name</label>
+            <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+        </div>
+        <div class="form-name mb-2">
+            <label>Last Name</label>
+            <input formControlName="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+        </div>
+        <div class="form-name mb-2">
+            <label>Phone number</label>
+            <input formControlName="phoneNo" placeholder="" autocomplete="off" class="form-control" type="text" id="phoneNo">  
+            <p class="text-danger" *ngIf="registerForm.phoneNo?.errors?.maxLength">Value must be a valid number.</p>
+        </div>
+        <div class="form-name mb-2">
+            <label>Email ID</label>
+            <input formControlName="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
+        </div>
+        <div class="form-name mb-2">
+            <label>Password</label>
+            <input formControlName="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
+        </div>
+        <div class="mb-2">
+            <button class="btn btn-secondary" (click)="newRegister()">Create</button>
+        </div>
+    </form>
+    
 </div>

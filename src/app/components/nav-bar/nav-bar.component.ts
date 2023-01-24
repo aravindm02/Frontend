@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class NavBarComponent implements OnInit {
   searchText:any
+  activeNavBar:any
   emailId:any
   productList:any
   showSearchBar:any
@@ -20,9 +21,14 @@ export class NavBarComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.activeNavBar='collections'
   }
   toggleSearchBar(){
         this.showSearchBar=!this.showSearchBar
+  }
+  selectedNavBar(val,url?:any){
+    this.activeNavBar=val
+    return this.router.navigate([url])
   }
   search(event?:any){
     let searchValue = event.target.value.toLowerCase()

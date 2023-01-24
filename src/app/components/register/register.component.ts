@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -10,9 +12,35 @@ export class RegisterComponent implements OnInit {
   lastName:any
   emailId:any
   passcode:any
-  constructor() { }
+  registerForm: any;
+  numberRegEx = /\-?\d*\.?\d{1,2}/;
+  constructor(private formBuilder: FormBuilder,private api:ApiService) { }
 
   ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      firstName:[null],
+      lastName:[null],
+      phoneNo:[null,[Validators.maxLength(10),Validators.pattern(this.numberRegEx)]],
+      emailId:[null,[Validators.email]],
+      passcode:[null],
+    })
+  }
+  newRegister(){
+    let form=this.registerForm.getRawValue()
+    let body={
+      "customerName":`${form.firstName} ${form.lastName}`,
+      "phoneNumber":Number(form.phoneNo),
+      "password":form.passcode,
+      "email":form.emailId,
+      "customerAddress":"",
+      "wishlistProductDetails":null,
+      "orderHistory":null  
+    }
+    this.api.CustomerSignUp(body).subscribe(async data=>{
+      console.log(data)
+    })
+
+
   }
 
 }

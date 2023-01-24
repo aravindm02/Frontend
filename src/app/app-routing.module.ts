@@ -4,8 +4,11 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GiftProductComponent } from './gift-product/gift-product.component';
+import { NewArrivalsProductComponent } from './new-arrivals-product/new-arrivals-product.component';
 import { ProductCollectionsComponent } from './product-collections/product-collections/product-collections.component';
 import { ProductDetailsComponent } from './product-collections/product-details/product-details.component';
+import { ProductPersonalisedComponent } from './product-personalised/product-personalised.component';
 
 
 const routes: Routes = [
@@ -17,7 +20,10 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent, data: { title: 'Login'}},
     { path: 'register', component: RegisterComponent,data: { title: 'Register'}},
     { path: 'product-collections', component: ProductCollectionsComponent, data: { title: 'Collections'}},
-     { path: 'product-collections/details/:name', component: ProductDetailsComponent, data: { title: 'Details'}}
+     { path: 'product-collections/details/:name', component: ProductDetailsComponent, data: { title: 'Details'}},
+     { path: 'product-personalised', component: ProductPersonalisedComponent, data: { title: 'Personalised'}},
+     { path: 'product-gifts', component: GiftProductComponent, data: { title: 'Gifts'}},
+     { path: 'product-new-arrivals', component: NewArrivalsProductComponent, data: { title: 'New-arrivals'}},
    ]},
   { path: '**', component: NavBarComponent }
 ];
