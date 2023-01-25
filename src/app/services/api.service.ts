@@ -28,4 +28,8 @@ export class ApiService {
     let url='https://dead-puce-quail-tux.cyclic.app/Customer/updateCustomer';
     return this.http.post(url,body);
   }
+  verifyOTP(body){
+    let url=`https://dead-puce-quail-tux.cyclic.app/Customer/updateCustomer/${body}`;
+    return this.http.get(url);
+  }
 }

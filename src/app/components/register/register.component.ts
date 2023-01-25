@@ -14,6 +14,8 @@ export class RegisterComponent implements OnInit {
   passcode:any
   registerForm: any;
   numberRegEx = /\-?\d*\.?\d{1,2}/;
+  loginStatus: Object;
+  showVerifyOtp: boolean;
   constructor(private formBuilder: FormBuilder,private api:ApiService) { }
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class RegisterComponent implements OnInit {
   }
   newRegister(){
     let form=this.registerForm.getRawValue()
+    this.showVerifyOtp=true
     let body={
       "customerName":`${form.firstName} ${form.lastName}`,
       "phoneNumber":Number(form.phoneNo),
@@ -37,6 +40,13 @@ export class RegisterComponent implements OnInit {
       "orderHistory":null  
     }
     this.api.CustomerSignUp(body).subscribe(async data=>{
+      // this.showVerifyOtp=true
+      console.log(data)
+    })
+  
+    let val=form.otp
+    this.api.verifyOTP(val).subscribe(async data=>{
+      // this.showVerifyOtp=true
       console.log(data)
     })
 

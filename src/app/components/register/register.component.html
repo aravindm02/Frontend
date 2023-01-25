@@ -1,4 +1,4 @@
-<div class="register-block">
+<div class="register-block" *ngIf="!showVerifyOtp">
     <h3>Create Account</h3>
     <form [formGroup]="registerForm">
         <div class="form-name mb-2">
@@ -27,4 +27,17 @@
         </div>
     </form>
     
+</div>
+
+<div *ngIf="showVerifyOtp">
+    <form [formGroup]="registerForm">
+        <h3>OTP Verification</h3>
+        <div class="form-name mb-2">
+            <label>First Name</label>
+            <input formControlName="otp" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+        </div>
+        <div class="mb-2">
+            <button class="btn btn-secondary" (click)="newRegister()">Verify</button>
+        </div>
+    </form>
 </div>
