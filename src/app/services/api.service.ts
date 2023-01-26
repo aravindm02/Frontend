@@ -9,7 +9,7 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getProductData(){
-    let url='https://dead-puce-quail-tux.cyclic.app/Product/getProduct';
+    let url='https://ecommerce-azys.onrender.com/Product/getProduct';
     return this.http.get(url);
   }
   CustomerLogin(body){
