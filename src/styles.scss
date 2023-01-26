@@ -65,6 +65,12 @@ body.html {
     }
  
 }
+
+.disabled {
+  background: #e9ecef !important;
+  border: none !important;
+  pointer-events: none !important;
+}
 .blue-text{
     color: #0B70D5 !important; 
     cursor: pointer;

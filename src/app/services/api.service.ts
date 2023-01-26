@@ -13,23 +13,23 @@ export class ApiService {
     return this.http.get(url);
   }
   CustomerLogin(body){
-    let url='https://dead-puce-quail-tux.cyclic.app/Customer/loginCustomer';
+    let url='https://ecommerce-azys.onrender.com/Customer/loginCustomer';
     return this.http.post(url,body);
   }
   CustomerLoginForget(body){
-    let url='https://dead-puce-quail-tux.cyclic.app/Customer/forgetPassword';
+    let url='https://ecommerce-azys.onrender.com/Customer/forgetPassword';
     return this.http.post(url,body);
   }
   CustomerSignUp(body){
-    let url='https://dead-puce-quail-tux.cyclic.app/Customer/customerSignup';
+    let url='https://ecommerce-azys.onrender.com/Customer/customerSignup';
     return this.http.post(url,body);
   }
   CustomerUpdateLogin(body){
-    let url='https://dead-puce-quail-tux.cyclic.app/Customer/updateCustomer';
+    let url='https://ecommerce-azys.onrender.com/Customer/updateCustomer';
     return this.http.post(url,body);
   }
-  verifyOTP(body){
-    let url=`https://dead-puce-quail-tux.cyclic.app/Customer/updateCustomer/${body}`;
+  verifyOTP(otp){
+    let url=`https://ecommerce-azys.onrender.com/Customer/verifyCustomerOtp/${otp}`;
     return this.http.get(url);
   }
 }
