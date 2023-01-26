@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
         "password":this.passcode
       }
       this.api.CustomerLogin(body).subscribe(async data=>{
+        
         console.log(data)
       })
     }else{
