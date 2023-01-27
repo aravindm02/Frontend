@@ -1,0 +1,39 @@
+.main-content{
+    display: grid;
+    margin-top: 140px;
+    background: #ffffff;
+    padding: 0px 300px;
+    text-align: center;
+    color: #3d4246;
+    .stepper{
+        font-size: 12px;
+        .stepperImg{
+            transform: rotate(180deg);
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    }
+    .text-priceOriginal{
+        font-size: 20px;
+        color: #3d4246;
+    }
+    .countInput{
+        background-color: #f0f4f8;
+        border: 0px;
+    }
+
+}
+.table td{
+    border-top: 0px;
+}
+.font-color{
+    color: #3d4246;
+}
+.summary{
+    width: 25%;
+    padding: 8px;
+    background-color: #f0f4f8;
+    font-size: 12px;
+    margin-left: 24px;
+
+}

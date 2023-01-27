@@ -8,9 +8,27 @@ import { FormService } from './form.service';
 })
 export class UtilService {
   private constValues = StaticValues.values;
+  currentUserData: any;
+  cartData: any=[];
   constructor(
     private form :FormService,
   ) { }
+
+  setCurrentUserData(userData:any){
+    this.currentUserData = userData;
+  }
+
+  getCurrentUserData(){
+    return this.currentUserData;
+  }
+
+  setCartData(data:any){
+    this.cartData = data;
+  }
+  getCartData(){
+    return this.cartData;
+  }
+
 
   getStatic(target, key?: any) {
     return key ? this.constValues[target][key] : this.constValues[target];

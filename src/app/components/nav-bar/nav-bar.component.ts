@@ -15,7 +15,8 @@ export class NavBarComponent implements OnInit {
   emailId:any
   productList:any
   showSearchBar:any
-  list:any
+  wishListCount:number=0
+  cartListCount:number=0
   
   constructor(private api:ApiService,private router:Router) {
    }

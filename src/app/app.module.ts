@@ -22,6 +22,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ProductPersonalisedComponent } from './product-personalised/product-personalised.component';
 import { GiftProductComponent } from './gift-product/gift-product.component';
 import { NewArrivalsProductComponent } from './new-arrivals-product/new-arrivals-product.component';
+import { CartComponent } from './cart/cart.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { NewArrivalsProductComponent } from './new-arrivals-product/new-arrivals
     HomeComponent,
     ProductPersonalisedComponent,
     GiftProductComponent,
-    NewArrivalsProductComponent
+    NewArrivalsProductComponent,
+    CartComponent
   ],
   imports: [
     AppRoutingModule,

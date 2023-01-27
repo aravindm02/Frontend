@@ -32,4 +32,12 @@ export class ApiService {
     let url=`https://ecommerce-azys.onrender.com/Customer/verifyCustomerOtp/${otp}`;
     return this.http.get(url);
   }
+  resendOTP(body){
+    let url=`https://ecommerce-azys.onrender.com/Customer/resendOtp`;
+    return this.http.post(url,body);
+  }
+  resetPassword(body){
+    let url=`https://ecommerce-azys.onrender.com/Customer/resetPassword`;
+    return this.http.post(url,body);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   currentDate:any;
   showErrorMsg: boolean;
   showSuccessMsg: boolean=false;
-  constructor(private formBuilder: FormBuilder,private api:ApiService) { }
+  showResendOtp: boolean;
+  constructor(private formBuilder: FormBuilder,private api:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.currentDate = new Date().toISOString().slice(0, 10);
@@ -65,15 +67,31 @@ export class RegisterComponent implements OnInit {
       console.log(data)
       if(data.status==1){
         this.showVerifyOtp=true
+        this.showResendOtp=false
+      }else if(data.message=='Already Use These Email'){
+        this.showResendOtp=true
       }else this.showErrorMsg=true
+    })
+  }
+  resendOtp(){
+    let form=this.registerForm.getRawValue()
+    let body={
+      "email":form.emailId,
+    }
+    this.api.resendOTP(body).subscribe(async (data:any)=>{
+      console.log(data)
+      if(data.status==1){
+        this.showVerifyOtp=true
+      }
     })
   }
 
   otpVerification(){
     let form=this.registerForm.getRawValue()
     this.api.verifyOTP(form.otp).subscribe(async (data:any)=>{
-      if(data.status==1){
+      if(data.status){
         this.showSuccessMsg=true
+        this.router.navigate(['/jewel/product-collections'])
       }else this.showErrorMsg=true
       console.log(data)
     })

@@ -40,7 +40,8 @@
                 <input formControlName="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
             </div>
             <div class="mb-2">
-                <button class="btn btn-secondary" [class.disabled]="registerForm.invalid" (click)="newRegister()">Create</button>
+                <button class="btn btn-secondary mr-2" *ngIf="!showResendOtp" [class.disabled]="registerForm.invalid" (click)="newRegister()">Create</button>
+                <button class="btn btn-secondary" *ngIf="showResendOtp" (click)="resendOtp()">Resend OTP</button>
             </div>
         </ng-container>
         <ng-container *ngIf="showVerifyOtp">
