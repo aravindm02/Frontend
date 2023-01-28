@@ -11,7 +11,7 @@ import { UtilService } from '../services/util.service';
 export class CartComponent implements OnInit {
   currentUserData: any;
   cartListData: any;
-  productCount:any
+  productCount:any=1
   totalAmt: number;
 
   constructor(private api:ApiService,private router:Router,private util:UtilService) { }
@@ -25,6 +25,13 @@ export class CartComponent implements OnInit {
     })
     this.totalAmt=val
   }
+  itemPlus(){
+    this.productCount +=1
+  }
+  itemMinus(){
+    this.productCount -=1
+  }
+
   deleteProduct(list){
     let index=this.cartListData.findIndex(e=>e.productId==list.productId)
     this.cartListData.splice(index,1)

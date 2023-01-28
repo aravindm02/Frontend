@@ -18,9 +18,9 @@
                                         {{row?.data?.productName}}
                                     </div>
                                     <div class="bg-clr w-50">
-                                        <button class="btn btn-default">-</button>
+                                        <button class="btn btn-item" (click)="itemMinus()">-</button>
                                         <input [(ngModel)]="productCount" type="text" name="Quantity" class="countInput w-50"/>
-                                        <button class="btn btn-default">+</button>
+                                        <button class="btn btn-item m-0" (click)="itemPlus()">+</button>
                                     </div>
                                     <!-- <div ng-repeat="item in PC.Items">
                                         <button (click)="itemMinus(item)" class="btn btn-default">-</button>

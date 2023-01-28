@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { UtilService } from 'src/app/services/util.service';
 
 
 @Component({
@@ -17,11 +18,21 @@ export class NavBarComponent implements OnInit {
   showSearchBar:any
   wishListCount:number=0
   cartListCount:number=0
+  private _subscription: any;
+  userLogin: boolean;
   
-  constructor(private api:ApiService,private router:Router) {
+  constructor(private api:ApiService,private router:Router,private util:UtilService) {
    }
 
   ngOnInit(): void {
+    this.userLogin=true
+  //   this._subscription = this.util.getCartData().subscribe((value) => {
+  //     let temp=0
+  //     value.forEach(e=>{
+  //       temp+=e.quantity
+  //     })
+  //     this.cartListCount = temp
+  // })
     this.activeNavBar='collections'
   }
   toggleSearchBar(){
@@ -35,6 +46,13 @@ export class NavBarComponent implements OnInit {
     let searchValue = event.target.value.toLowerCase()
     // if(searchValue) $(".search-expand").addClass('open')
     // else $(".search-expand").removeClass('open')
+  }
+
+  loginPage(){
+    if(!this.userLogin){
+      this.activeNavBar=''
+      return this.router.navigate(['/jewel/login'])
+    }else return
   }
 
 

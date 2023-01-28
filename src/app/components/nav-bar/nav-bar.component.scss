@@ -10,8 +10,8 @@
     font-family: Roboto;
     .offer-header{
         height: 40px;
-        background: #e0a7d3;//   #b22392;
-        color: black;
+        background: #7f3395; //#e0a7d3;//   #b22392;
+        color: #ffffff;
         display: flex;
         .offer-inline{
             text-align: center;
@@ -129,7 +129,7 @@
         left: 32px;
     }
     .manual-srch{
-        padding: 7px 13px 8px 35px;
+        padding: 10px;
         position: static;
         width: 100%;
         height: 32px;
