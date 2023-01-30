@@ -2,6 +2,7 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Avenir_Next&display=swap');
 // @import "~@ng-select/ng-select/themes/default.theme.css";
 // @import "~@ng-select/ng-select/themes/material.theme.css";
 /* Importing Bootstrap SCSS file. */
@@ -9,7 +10,7 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 body.html {
-    font-family: Roboto;
+    font-family: Avenir_Next;
     font-style: normal;
     font-weight: normal;
   }
