@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { UtilService } from 'src/app/services/util.service';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -20,12 +21,30 @@ export class NavBarComponent implements OnInit {
   cartListCount:number=0
   private _subscription: any;
   userLogin: boolean;
+  categoryDropdownList: any;
+  stoneDropdownList: any;
+  colourDropdownList: any;
+  styleDropdownList: any;
+  forDropdownList: any;
+  sortByDropdownList: any;
   
-  constructor(private api:ApiService,private router:Router,private util:UtilService) {
+  constructor(private api:ApiService,private router:Router,private util:UtilService,private changeDetectorRefs: ChangeDetectorRef,private zone:NgZone) {
    }
 
   ngOnInit(): void {
-    this.userLogin=true
+    // this.util.getCurrentUserData().subscribe((data) => {
+    //   this.zone.run(() => {
+    //     this.userLogin= data ? true :false
+    //     console.log('enabled time travel');
+    // });
+    //   // this.changeDetectorRefs.detectChanges();
+    //  })
+    this.categoryDropdownList =this.util.getStatic('categoryDropdown');
+    this.stoneDropdownList = this.util.getStatic('stoneDropdown') ;
+    this.colourDropdownList = this.util.getStatic('colourDropdown');
+    this.styleDropdownList = this.util.getStatic('styleDropdown') ;
+    this.forDropdownList = this.util.getStatic('forDropdown') ;
+    this.sortByDropdownList = this.util.getStatic('sortByDropdown') ;
   //   this._subscription = this.util.getCartData().subscribe((value) => {
   //     let temp=0
   //     value.forEach(e=>{
@@ -35,6 +54,12 @@ export class NavBarComponent implements OnInit {
   // })
     this.activeNavBar='collections'
   }
+  // ngAfterViewInit(){
+  //      this.util.getCurrentUserData().subscribe((data) => {
+  //     this.userLogin= data ? true :false
+  //     this.changeDetectorRefs.detectChanges();
+  //    })
+  // }
   toggleSearchBar(){
         this.showSearchBar=!this.showSearchBar
   }
@@ -46,6 +71,9 @@ export class NavBarComponent implements OnInit {
     let searchValue = event.target.value.toLowerCase()
     // if(searchValue) $(".search-expand").addClass('open')
     // else $(".search-expand").removeClass('open')
+  }
+  getSelectedCollection(row){
+    return this.router.navigate(['/jewel/product-collections'],{state : {row}})
   }
 
   loginPage(){

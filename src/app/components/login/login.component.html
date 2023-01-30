@@ -2,11 +2,11 @@
     <h3>Login</h3>
     <div class="form-name mb-2">
         <label>Email ID</label>
-        <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
+        <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="email" id="email-id">  
     </div>
     <div class="form-name mb-2">
         <label>Password</label>
-        <input [(ngModel)]="passcode" placeholder="" autocomplete="off" class="form-control" type="text" id="password">  
+        <input [(ngModel)]="passcode" placeholder="" autocomplete="off" class="form-control" type="password" id="password">  
     </div>
     <div *ngIf="errorMessage">
         <label class="border-danger">{{loginData}}</label>
@@ -30,7 +30,7 @@
         </label>
         <div class="form-name mb-2">
             <label>Email ID</label>
-            <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="text" id="email-id">  
+            <input [(ngModel)]="emailId" placeholder="" autocomplete="off" class="form-control" type="email" id="email-id">  
         </div>
         <div class="mb-2">
             <button class="btn btn-secondary mr-12" (click)="signIn()">Submit</button>
@@ -41,7 +41,7 @@
         <h5>OTP Verification</h5>
         <div class="form-name mb-2">
             <label>OTP Number</label>
-            <input [(ngModel)]="otp" placeholder="" autocomplete="off" class="form-control" type="text" id="otp">  
+            <input [(ngModel)]="otp" placeholder="" autocomplete="off" class="form-control" type="number" id="otp">  
         </div>
         <div class="mb-2">
             <button class="btn btn-secondary" [class.disabled]="!otp" (click)="otpVerification()">Verify</button>
@@ -51,7 +51,7 @@
     <h3>Type your New Password</h3>
     <div class="form-name mb-2">
         <label>Enter your new password</label>
-        <input [(ngModel)]="newPasscode" placeholder="" autocomplete="off" class="form-control" type="text" id="newPasscode">  
+        <input [(ngModel)]="newPasscode" placeholder="" autocomplete="off" class="form-control" type="password" id="newPasscode">  
     </div>
     <div class="mb-2">
         <button class="btn btn-secondary" [class.disabled]="!newPasscode" (click)="updatePassword()">Save</button>

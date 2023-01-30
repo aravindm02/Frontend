@@ -58,6 +58,7 @@ export class ProductCollectionsComponent implements OnInit {
        }
    }
   async ngOnInit(): Promise<void> {
+    console.log(history.state)
     this.filterForm= this.util.getForm('productFilter')
     this.sortByFilter='FEATURED'
     this.api.getProductData().subscribe(async data=>{
@@ -67,12 +68,18 @@ export class ProductCollectionsComponent implements OnInit {
       this.allProductList=this.productList
       await this.getFilterDropDownData()
     })
+    let data=history.state.row
+    console.log(data)
     // this.api.getLoginData().subscribe(async data=>{
     //   console.log(data)
     // })
   }
   ngAfterViewInit(){
     this.elementPosition = this.menuElement.nativeElement.offsetTop;
+  }
+
+  routedfromNav(){
+    
   }
 
    getFilterDropDownData(){
