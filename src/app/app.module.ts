@@ -23,6 +23,10 @@ import { ProductPersonalisedComponent } from './product-personalised/product-per
 import { GiftProductComponent } from './gift-product/gift-product.component';
 import { NewArrivalsProductComponent } from './new-arrivals-product/new-arrivals-product.component';
 import { CartComponent } from './cart/cart.component';
+import { LoginSecurityComponent } from './login-security/login-security.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
+import { CustomerAddressComponent } from './customer-address/customer-address.component';
+import { AddWishlistComponent } from './add-wishlist/add-wishlist.component';
 
 
 @NgModule({
@@ -38,7 +42,11 @@ import { CartComponent } from './cart/cart.component';
     ProductPersonalisedComponent,
     GiftProductComponent,
     NewArrivalsProductComponent,
-    CartComponent
+    CartComponent,
+    LoginSecurityComponent,
+    OrderDetailsComponent,
+    CustomerAddressComponent,
+    AddWishlistComponent
   ],
   imports: [
     AppRoutingModule,

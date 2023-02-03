@@ -5,7 +5,7 @@ import { FormBuilder, Validators, FormArray, FormGroup, FormControl } from '@ang
   providedIn: 'root'
 })
 export class FormService {
-
+  numberRegEx = /\-?\d*\.?\d{1,2}/;
   constructor(private formBuilder: FormBuilder) { }
 
   getForm(type, data?: any, def?: any) {
@@ -26,6 +26,18 @@ export class FormService {
           // sortByArray:this.formBuilder.array([[this.addSortArray(data?.sortByDropdownList)]]),
           minPrice:[null],
           maxPrice:[null],
+        })
+        return tempForm;
+      }
+      case 'customerDetails':{
+        let tempForm = this.formBuilder.group({
+          firstName:[data && data.firstName ? data.firstName : null,[Validators.required]],
+          lastName:[data && data.lastName ? data.lastName : null,[Validators.required]],
+          gender:[data && data.gender ? data.gender : 'Male',[Validators.required]],
+          dob:[data && data.dateOfBirth ? data.dateOfBirth : null,[Validators.required]],
+          phoneNo:[data && data.phoneNumber ? data.phoneNumber : null,[Validators.required,Validators.maxLength(10),Validators.pattern(this.numberRegEx)]],
+          emailId:[data && data.email ? data.email : null,[Validators.required,Validators.email]],
+          passcode:[data && data.password ? data.password : null,[Validators.required]],
         })
         return tempForm;
       }

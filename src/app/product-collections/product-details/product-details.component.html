@@ -21,8 +21,8 @@
                 </div>
             
                 <button class="btn btn-cart mb-12" (click)="addToCart()">ADD TO CART</button>
-                <button class="btn btn-secondary btn-buy mb-12" style="background-color: #7f3395;">BUY IT NOW</button>
-                <button class="btn border mb-12">ADD TO WISHLIST</button>
+                <button class="btn btn-secondary btn-buy mb-12" style="background-color: #7f3395;" (click)="BuyItNow()">BUY IT NOW</button>
+                <button class="btn border mb-12" (click)="addWishlist()">{{addToWishlist ? 'ADDED TO WISHLIST' :'ADD TO WISHLIST'}}</button>
             </div>
             <div class="flex-custom mb-3">
                 <!-- static policy content -->
@@ -40,19 +40,19 @@
             <div class="btm-line">
                 <div class="filter-id mr-2 drop" (click)="subMenuOpen('specialoffer')"  id="specialoffer">SPECIAL OFFERS</div>
                 <div class="dropdown-content">
-                    <p>{{currentProductDetails.description}}</p>
+                    <div>{{currentProductDetails.description}}</div>
                 </div>
             </div>
             <div class="btm-line">
                 <div class="filter-id mr-2 drop" (click)="subMenuOpen('productdescription')"  id="productdescription">PRODUCT DESCRIPTION</div>
                 <div class="dropdown-content">
-                   <p>{{currentProductDetails.description}}</p>
+                    <div>{{currentProductDetails.description}}</div>
                 </div>
             </div>
             <div class="btm-line">
                 <div class="filter-id mr-2 drop" (click)="subMenuOpen('shippingdetails')"  id="shippingdetails">SHIPPING DETAILS</div>
                 <div class="dropdown-content">
-                   <p>{{currentProductDetails.description}}</p>
+                    <div>{{currentProductDetails.description}}</div>
                 </div>
             </div>
         </div>

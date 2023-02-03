@@ -18,19 +18,24 @@ export class ProductDetailsComponent implements OnInit {
   ]
   currentUserData: any;
   cartList: any=[];
+  wishList: any=[];
+  addToWishlist: boolean=false;
+  productList: any;
   constructor(private api:ApiService,private router:Router,private util:UtilService) {
     
    }
 
-  ngOnInit(): void  {
+  async ngOnInit(): Promise<void>  {
     this.currentProductDetails=history.state.data
     console.log(history.state)
     this.currentUserData=this.util.getCurrentUserData()
     this.cartList=this.util.getCartData()
+    this.wishList=this.util.getWishlistData()
+    await this.getAllProduct()
     // $('.product-details').animate({scrollTop:0});
   }
   subMenuOpen(id){
-    $('#' + id).toggleClass('open').children().slideToggle(300);
+    $('#' + id).toggleClass('open').siblings().slideToggle(300);
   }
 
   addToCart(){
@@ -78,10 +83,58 @@ export class ProductDetailsComponent implements OnInit {
       })
       }
       this.cartList=this.util.unique(this.cartList,['_id'])
-      this.util.setCartData(this.cartList)
+      this.util.setObservable('addCartListCount',this.cartList/length)
     }
   
     this.router.navigate(['/jewel/cart'])
+  }
+
+  async BuyItNow(){
+    await this.addToCart()
+    this.router.navigate(['/jewel/customer-address'])
+  }
+
+  async addWishlist(){
+
+    //orignal func
+    this.addToWishlist=!this.addToWishlist
+    if(this.addToWishlist){
+      if(this.currentUserData){
+        let existWishList=this.currentUserData.data.wishlistProductIdDetails
+        if(existWishList.length){
+          existWishList.forEach(e=>{
+            this.productList.forEach(x=>{
+              x['wishList']= e==x.productId || e==this.currentProductDetails.productId && !x['wishList'] ? true :false
+            })
+          })
+        }else{
+          this.productList.forEach(x=>{
+            x['wishList']=false
+          })
+        }
+        this.util.setObservable('currentUserData',this.currentUserData)
+      }else{
+        this.productList.forEach(x=>{
+          x['wishList']= this.currentProductDetails.productId==x.productId && !x['wishList'] ? true :false
+        })
+      }
+  
+    }else{
+      this.productList.forEach(x=>{
+        x['wishList']= this.currentProductDetails.productId==x.productId && !x['wishList'] ? true :null
+      })
+    }
+    this.util.setObservable('',this.productList)
+    this.router.navigate(['/jewel/add-to-wishlist'])
+  }
+
+  async getAllProduct(){
+    return this.api.getProductData().subscribe(async (data:any)=>{
+      console.log(data)
+      this.productList=data
+      this.productList=this.productList.data
+      this.productList.forEach(e=> e['wishList']=false)
+    })
   }
 
 }

@@ -1,0 +1,32 @@
+.main-content{
+    display: grid;
+    margin-top: 140px;
+    background: #ffffff;
+    padding: 0px 300px;
+    text-align: center;
+    color: #3d4246;
+    .stepper{
+        font-size: 12px;
+        .stepperImg{
+            transform: rotate(180deg);
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    }
+    .customer_details{
+        text-align: initial;
+        margin-top: 1rem;
+    }
+
+}
+
+.font-color{
+    color: #3d4246;
+}
+.summary{
+    padding: 12px;
+    background-color: #f0f4f8;
+    font-size: 12px;
+    margin-left: 24px;
+
+}

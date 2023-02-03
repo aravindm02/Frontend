@@ -9,44 +9,80 @@
             <h5 class="mb-4">Your Cart</h5>
             <div class="flex-custom">
                 <!-- <div class="flex-grid" *ngFor="let row of cartListData;let i=index"> -->
-                    <table class="table">
-                        <tbody>
-                            <ng-container *ngFor="let row of cartListData;index as i">
-                                <tr class="cursor-pointer">
-                                    <td class="w-25 text-left"><img class="" style="width:35%" [src]="row.data.productImage" alt=""></td>
-                                    <td class="text-left">
-                                        <div class="mb-3">
-                                            {{row?.data?.productName}}
+                    <div>
+                        <table class="table">
+                            <tbody>
+                                <ng-container *ngFor="let row of cartListData;index as i">
+                                    <tr class="cursor-pointer">
+                                        <!-- <ng-container formArrayName="notificationArray" *ngFor="let tanch of actionForm.get('notificationArray')['controls']; let i = index;">
+                                            <div class="comm-mb ">
+                                              <div class="notify-wrap" id="notify-list-{{i}}" [formGroupName]="i">
+                                                <div class="w-50">
+                                                  <label class="flex-custom nowrap">Notification type<img class="tooltip-icon" src="/assets/Infra/info.svg" alt="" matTooltip="Select the type of notification that will be sent to the reciever." matTooltipClass="nav-tooltips" matTooltipShowDelay="500"></label>
+                                                  <ng-select [items]="actionNotifyList"  (change)="selectNotify($event,i)" bindLabel="name" bindValue="id" name="notify" [clearable]="false" id="notify" formControlName="type"></ng-select>
+                                                </div>
+                                                <div class="w-50 ml-3">
+                                                  <label class="flex-custom nowrap">Name<img class="tooltip-icon" src="/assets/Infra/info.svg" alt="" matTooltip="Provide a unique name for the notification, under 128 characters.Notification and action names must be unique from one another." matTooltipClass="nav-tooltips" matTooltipShowDelay="500"></label>
+                                                  <input class="form-control full-width" type="text" formControlName="value" maxlength="128" [class.border-danger]="tanch.get('value')?.errors?.required || tanch.get('value')?.errors?.duplicated" (keyup)="checkDuplicates('value',i)"/>
+                                                  <p class="text-danger" *ngIf="tanch.get('value')?.errors?.required">Name is required.</p>
+                                                  <p class="text-danger" *ngIf="tanch.get('value')?.errors?.duplicated">Name cannot be same.</p>
+                                                </div>
+                                                <img src="assets/app-monitoring/Edit.svg" alt="" class="cursor-pointer ml-2 mt-3"  *ngIf="tanch.get('type').value" (click)="editNotification(i)">
+                                                <ng-container *ngIf="notifyList?.length > 1">
+                                                  <img src="assets/app-monitoring/Delete.svg" alt="" class="cursor-pointer ml-2 mt-3" (click)="removeNotify(i)">
+                                                </ng-container>
+                                              </div>
+                                            </div>
+                                          </ng-container> -->
+                                        <td class="w-25 text-left"><img class="" style="width:35%" [src]="row.data.productImage" alt=""></td>
+                                        <td class="text-left">
+                                            <div class="mb-3">
+                                                {{row?.data?.productName}}
+                                            </div>
+                                            <div class="bg-clr" style="width: 111px;">
+                                                <span class="btn btn-item" (click)="itemMinus()">-</span>
+                                                <input (keyup)="setQuantity($event,row)" [(ngModel)]="productCount" type="text" name="Quantity" class="countInput"/>
+                                                <span class="btn btn-item m-0" (click)="itemPlus()">+</span>
+                                            </div>
+                                            <!-- <div ng-repeat="item in PC.Items">
+                                                <button (click)="itemMinus(item)" class="btn btn-default">-</button>
+                                                <input [(ngModel)]="passcode" type="number" name="Quantity"/>
+                                                <button class="btn btn-default" (click)="itemPlus(item)">+</button>
+                                            </div> -->
+                                        </td>
+                                        <td class="text-lg-right font-color">
+                                            <div class="text-priceOriginal mb-1">{{row?.data?.discountPrice | currency:'INR'}}</div>
+                                            <div class="mb-1"><s>{{row?.data?.actualPrice | currency:'INR'}}</s></div>
+                                            <div><img class="" src="assets/delete.svg" alt="" (click)="deleteProduct(row)"></div>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-bottom">
+                                        <div class="flex-custom">
+                                            <input type="checkbox" id="giftWrap"  class="mr-3 mb-1" autocomplete="off">
+                                            <label style="width: max-content;" for="giftWrap">Add Gift Wrap to your Order (Rs. 50)</label>
                                         </div>
-                                        <div class="bg-clr w-50">
-                                            <button class="btn btn-item" (click)="itemMinus()">-</button>
-                                            <input [(ngModel)]="productCount" type="text" name="Quantity" class="countInput w-50"/>
-                                            <button class="btn btn-item m-0" (click)="itemPlus()">+</button>
+                                    </tr>
+                                </ng-container>
+                                <div class="col-md-12 mt-3" *ngIf="!cartListData?.length">
+                                    <p class="content-14 blur-text">No data Found</p>
+                                </div>
+                            </tbody>
+                        </table>
+                        <div class="product-policies">
+                        <ng-container *ngFor="let policy of productPolicies">
+                                <ul class="tags p-1 mr-3">
+                                    <li style="list-style: none;">
+                                        <div class="flex-custom" style="align-items: center;">
+                                            <img class="" src="assets/tick.svg" alt="">
+                                            <p>{{policy?.Name}}</p>
                                         </div>
-                                        <!-- <div ng-repeat="item in PC.Items">
-                                            <button (click)="itemMinus(item)" class="btn btn-default">-</button>
-                                            <input [(ngModel)]="passcode" type="number" name="Quantity"/>
-                                            <button class="btn btn-default" (click)="itemPlus(item)">+</button>
-                                        </div> -->
-                                    </td>
-                                    <td class="text-lg-right font-color">
-                                        <div class="text-priceOriginal mb-1">{{row?.data?.discountPrice | currency:'INR'}}</div>
-                                        <div class="mb-1"><s>{{row?.data?.actualPrice | currency:'INR'}}</s></div>
-                                        <div><img class="" src="assets/delete.svg" alt="" (click)="deleteProduct(row)"></div>
-                                    </td>
-                                </tr>
-                                <tr class="border-bottom">
-                                    <div class="flex-custom">
-                                        <input type="checkbox" id="giftWrap"  class="mr-3 mb-1" autocomplete="off">
-                                        <label style="width: max-content;" for="giftWrap">Add Gift Wrap to your Order (Rs. 50)</label>
-                                    </div>
-                                </tr>
-                            </ng-container>
-                            <div class="col-md-12 mt-3" *ngIf="!cartListData?.length">
-                                <p class="content-14 blur-text">No data Found</p>
-                            </div>
-                        </tbody>
-                    </table>
+                                    </li>
+                                </ul>
+                        </ng-container>
+                    </div>
+                    </div>
+                  
+
                    <div class="summary">
                     <label class="text-left">Order Summary</label>
                     <table class="table mb-3">
@@ -63,9 +99,12 @@
                                 <td class="text-left">Total</td>
                                 <td class="text-right">{{totalAmt | currency:'INR'}}</td>
                             </tr>
-                            <label class="p-2" style="width:150%;">P.S: Use discount code on the checkout page</label>
                         </tbody>
                     </table>
+                    <label class="p-2">P.S: Use discount code on the checkout page</label>
+                    <div class="">
+                        <button class="btn btn-dark" (click)="routeToNext()">Checkout Securely</button>
+                    </div>
     
                    </div>
             </div>
@@ -73,8 +112,8 @@
     </ng-container>
     <ng-container *ngIf="!cartListData.length">
         <div>
-            <h5 class="mb-4">Your Cart</h5>
-            <div>Your cart is empty.</div>
+            <h3 class="mb-4 font-weight-bolder">Your Cart</h3>
+            <div class="mb-2">Your cart is empty.</div>
             <button class="btn btn-secondary mb-12" routerLink="/jewel/product-collections">CONTINUE SHOPPING</button>
             <!-- <mat-icon class="ml-2">arrow_right_alt</mat-icon> -->
         </div>

@@ -32,6 +32,7 @@ export class NavBarComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.userLogin=true
     // this.util.getCurrentUserData().subscribe((data) => {
     //   this.zone.run(() => {
     //     this.userLogin= data ? true :false
@@ -81,6 +82,11 @@ export class NavBarComponent implements OnInit {
       this.activeNavBar=''
       return this.router.navigate(['/jewel/login'])
     }else return
+  }
+
+  logOut(){
+       this.util.setCurrentUserData('')
+       this.userLogin=false
   }
 
 

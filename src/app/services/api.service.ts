@@ -9,35 +9,35 @@ export class ApiService {
   constructor(private http:HttpClient) { }
 
   getProductData(){
-    let url='https://ecommerce-azys.onrender.com/Product/getProduct';
+    let url='https://ecommerce-kxhu.onrender.com/Product/getProduct';
     return this.http.get(url);
   }
   CustomerLogin(body){
-    let url='https://ecommerce-azys.onrender.com/Customer/loginCustomer';
+    let url='https://ecommerce-kxhu.onrender.com/Customer/loginCustomer';
     return this.http.post(url,body);
   }
   CustomerLoginForget(body){
-    let url='https://ecommerce-azys.onrender.com/Customer/forgetPassword';
+    let url='https://ecommerce-kxhu.onrender.com/Customer/forgetPassword';
     return this.http.post(url,body);
   }
   CustomerSignUp(body){
-    let url='https://ecommerce-azys.onrender.com/Customer/customerSignup';
+    let url='https://ecommerce-kxhu.onrender.com/Customer/loginCustomer';
     return this.http.post(url,body);
   }
   CustomerUpdateLogin(body){
-    let url='https://ecommerce-azys.onrender.com/Customer/updateCustomer';
+    let url='https://ecommerce-kxhu.onrender.com/Customer/updateCustomer';
     return this.http.post(url,body);
   }
   verifyOTP(otp){
-    let url=`https://ecommerce-azys.onrender.com/Customer/verifyCustomerOtp/${otp}`;
+    let url=`https://ecommerce-kxhu.onrender.com/Customer/verifyCustomerOtp/${otp}`;
     return this.http.get(url);
   }
   resendOTP(body){
-    let url=`https://ecommerce-azys.onrender.com/Customer/resendOtp`;
+    let url=`https://ecommerce-kxhu.onrender.com/Customer/resendOtp`;
     return this.http.post(url,body);
   }
   resetPassword(body){
-    let url=`https://ecommerce-azys.onrender.com/Customer/resetPassword`;
+    let url=`https://ecommerce-kxhu.onrender.com/Customer/resetPassword`;
     return this.http.post(url,body);
   }
 }

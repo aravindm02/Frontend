@@ -1,0 +1,86 @@
+<div class="main-content">
+        <div>
+            <div class="flex-custom">
+                <div class="mb-3" style="width: 60%;">
+                    <span class="stepper">Cart<img class="stepperImg" src="assets/left-arrow.svg" alt=""></span>
+                    <span class="stepper">Information<img class="stepperImg" src="assets/left-arrow.svg"alt=""></span>
+                    <span class="stepper">Payment</span>
+
+                    <div class="customer_details">
+                        <h2 class="mb-4">Contact information</h2>
+                        <div class="form-name mb-2">
+                            <label>Email ID</label>
+                            <input formControlName="emailId"  placeholder="" autocomplete="off" class="form-control" type="email" id="email-id">  
+                        </div>
+                        <h2 class="mb-4">Shipping Details</h2>
+                        <div class="form-name mb-4">
+                            <label>Country</label>
+                            <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                        </div>
+                        <div class="flex-custom">
+                            <div class="form-name mb-4 mr-3 w-50">
+                                <label>First Name</label>
+                                <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                            </div>
+                            <div class="form-name mb-4 w-50">
+                                <label>Last Name</label>
+                                <input formControlName="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+                            </div>
+                        </div>
+                        <div class="flex-custom">
+                            <div class="form-name mb-4 mr-3">
+                                <label>City</label>
+                                <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                            </div>
+                            <div class="form-name mb-4 mr-3">
+                                <label>State</label>
+                                <input formControlName="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+                            </div>
+                            <div class="form-name mb-4">
+                                <label>PIN code</label>
+                                <input formControlName="lastName" placeholder="" autocomplete="off" class="form-control" type="text" id="lastName">  
+                            </div>
+                        </div>
+                        <div class="form-name mb-4">
+                            <label>Address, suite, etc.</label>
+                            <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                        </div>
+                        <div class="form-name mb-4">
+                            <label>Phone NO.</label>
+                            <input formControlName="firstName" placeholder="" autocomplete="off" class="form-control" type="text" id="firstName">  
+                        </div>
+                        <div class="mb-2">
+                            <!-- <button (click)="editForm=!editForm" class="btn btn-secondary mr-2" >{{!editForm?'Edit':'Cancel'}}</button> -->
+                            <button class="btn btn-secondary mr-2" >Continue to Payment</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                   <div class="summary" style="width: 40%;">
+                    <label class="text-left">Order Summary</label>
+                    <!-- <table class="table mb-3">
+                        <tbody>
+                            <tr class="">
+                                <td class="text-left">Subtotal</td>
+                                <td class="text-right">{{totalAmt | currency:'INR'}}</td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td class="text-left">Shipping:</td>
+                                <td class="text-right">Free</td>
+                            </tr>
+                            <tr class="">
+                                <td class="text-left">Total</td>
+                                <td class="text-right">{{totalAmt | currency:'INR'}}</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+                    <label class="p-2">P.S: Use discount code on the checkout page</label>
+                    <div class="">
+                        <button class="btn btn-dark">Checkout Securely</button>
+                    </div>
+    
+                   </div>
+            </div>
+        </div>
+</div>
